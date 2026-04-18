@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Itumeleng Selonyane · Mobile & Web Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fbfbfe;
+      font-family: 'Inter', sans-serif;
+      color: #1e1f2a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #e9e9ef;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1.5rem 0;
+      gap: 1rem;
+      border-bottom: 1px solid #e2e2ec;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #6c47ff, #b86eff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2d2e3e;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: #8b5cf6;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 3rem 0 4rem;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-badge {
+      background: #ede9fe;
+      display: inline-block;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #6d28d9;
+      margin-bottom: 1.2rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .hero-content h1 span {
+      background: linear-gradient(120deg, #7c3aed, #c084fc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: #4b4c5e;
+      margin-bottom: 1.8rem;
+    }
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f1f0f7;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .btn-primary {
+      background: #1e1f2a;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #8b5cf6;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -8px rgba(107, 70, 193, 0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #cdcde0;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      color: #2d2e3e;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: #8b5cf6;
+      color: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    .hero-avatar {
+      flex: 0.7;
+      display: flex;
+      justify-content: center;
+    }
+    .avatar-card {
+      text-align: center;
+      background: white;
+      border-radius: 2rem;
+      padding: 1rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+      border: 1px solid #efedff;
+      width: 100%;
+      max-width: 280px;
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 0.8rem auto;
+      display: block;
+      border: 4px solid #f0ecff;
+      background: #f9f7ff;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .avatar-caption {
+      font-size: 0.85rem;
+      color: #6b6b82;
+      margin-top: 0.4rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: #8b5cf6;
+      border-radius: 4px;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-tag {
+      background: #ffffff;
+      border: 1px solid #eaeaf2;
+      padding: 0.6rem 1.3rem;
+      border-radius: 60px;
+      font-weight: 500;
+      transition: all 0.2s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+    .skill-tag:hover {
+      border-color: #c4b5fd;
+      background: #f8f6ff;
+      transform: scale(1.02);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      transition: 0.2s;
+      border: 1px solid #efeff5;
+      text-align: center;
+    }
+    .service-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .viewer-btn {
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .viewer-btn:hover {
+      background: #6d28d9;
+      transform: scale(1.02);
+    }
+
+    /* Modal / Certificate Viewer */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    .modal-content {
+      background: #1a1a2e;
+      padding: 1rem;
+      border-radius: 28px;
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+      box-shadow: 0 25px 50px -12px black;
+    }
+    .cert-viewer-img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 20px;
+      display: block;
+      margin: 0 auto;
+      pointer-events: none;
+      user-select: none;
+    }
+    .watermark {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-family: monospace;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .nav-btn {
+      background: #2d2d44;
+      border: none;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .screenshot-warning {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #e11d48;
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      z-index: 1100;
+      display: none;
+      font-weight: 500;
+    }
+
+    .about-wrap {
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 2rem 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+      border: 1px solid #eeedf5;
+    }
+    .about-text {
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+      color: #2c2d3f;
+    }
+    .contact-form {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 550px;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 0.9rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #e2e0f0;
+      font-family: 'Inter', sans-serif;
+      background: #fefeff;
+      transition: 0.2s;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #8b5cf6;
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+    .contact-form button {
+      background: #1e1f2a;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      width: fit-content;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .contact-form button:hover {
+      background: #8b5cf6;
+    }
+    .contact-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+    .contact-list a {
+      text-decoration: none;
+      color: #4f46e5;
+      font-weight: 500;
+      word-break: break-all;
+      transition: color 0.2s;
+    }
+    .contact-list a:hover {
+      color: #8b5cf6;
+    }
+    .contact-icon {
+      width: 32px;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    .form-message {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      color: #10b981;
+    }
+
+    footer {
+      border-top: 1px solid #e5e5f0;
+      padding: 2rem 0;
+      text-align: center;
+      color: #6f6f84;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 750px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+      .btn-group {
+        justify-content: center;
+      }
+      .avatar-card {
+        max-width: 260px;
+      }
+      .container {
+        padding: 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="logo">itumeleng.dev</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">✦ mobile & web developer ✦</div>
+        <h1>ITUMELENG <span>SELONYANE</span><br>building for the future</h1>
+        <div class="location">📍 Qoaling Lekhalong, Maseru, Lesotho</div>
+        <p class="hero-desc">I'm a Mobile Computing student at Botho University, passionate about crafting mobile apps, websites, and networking solutions.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn-primary">Let's connect →</a>
+          <a href="#services" class="btn-outline">What I do</a>
+        </div>
+      </div>
+      <div class="hero-avatar">
+        <div class="avatar-card">
+          <img class="profile-img" src="Itty.jpg" alt="Itumeleng Selonyane" onerror="this.src='https://placehold.co/400x400/ede9fe/7c3aed?text=Itumeleng+S'">
+          <div class="avatar-caption">Itumeleng Selonyane</div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2 class="section-title">⚡ technical toolkit</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">CSS/ HTML</span>
+        <span class="skill-tag">Android Studio</span>
+        <span class="skill-tag">Cisco Packet Tracer</span>
+        <span class="skill-tag">Mobile App Dev</span>
+        <span class="skill-tag">Responsive Websites</span>
+        <span class="skill-tag">Git & GitHub</span>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title"> what I offer</h2>
+      <div class="services-grid">
+        <div class="service-card"><div class="service-icon">📱</div><h3>Mobile Apps</h3><p>Android apps with Java & Android Studio.</p></div>
+        <div class="service-card"><div class="service-icon">🌐</div><h3>Websites</h3><p>Responsive, modern websites with HTML, CSS, JS.</p></div>
+        <div class="service-card"><div class="service-icon">🖧</div><h3>Network Simulations</h3><p>Cisco Packet Tracer configurations.</p></div>
+        <div class="service-card"><div class="service-icon">🎓</div><h3>Student Mentorship</h3><p>Helping peers with coding fundamentals.</p></div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <h2 class="section-title">📜 certifications</h2>
+      <div class="cert-grid">
+        <button id="openCertViewer" class="viewer-btn"><i class="fas fa-certificate"></i> View Certificates</button>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.9rem; color:#4b5563;">🎯 ALL CERTIFICATES — click to open secure viewer (screenshots & saving disabled).</p>
+    </section>
+
+ 
+    <div id="certModal" class="modal">
+      <div class="modal-content">
+        <button class="close-modal" id="closeModalBtn">&times;</button>
+        <img id="certImage" class="cert-viewer-img" src="" alt="Certificate">
+        <div class="watermark">© Itumeleng Selonyane | Verified</div>
+        <div class="nav-buttons">
+          <button id="prevCert" class="nav-btn"><i class="fas fa-chevron-left"></i> Previous</button>
+          <button id="nextCert" class="nav-btn">Next <i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div id="screenshotWarning" class="screenshot-warning">⚠️ Screenshots & saving are disabled on this viewer</div>
+
+    <section id="about">
+      <div class="about-wrap">
+        <h2 class="section-title" style="margin-bottom: 1rem;">🧑🏾‍💻 about me</h2>
+        <div class="about-text">
+          <strong>Itumeleng Selonyane</strong> — a driven tech student at Botho University, based in Qoaling Lekhalong, Maseru, Lesotho. I specialize in mobile development, web technologies, and networking. I'm looking for internships and collaborations to build impactful solutions.
+        </div>
+        <div id="contact">
+          <h2 class="section-title" style="margin: 2rem 0 1rem 0;">📬 connect with me</h2>
+          <form id="contactForm" class="contact-form">
+            <input type="text" placeholder="Your name" id="userName" required>
+            <input type="email" placeholder="Your email" id="userEmail" required>
+            <textarea rows="4" placeholder="Hi Itumeleng, I'd love to talk about ..." id="userMsg" required></textarea>
+            <button type="submit">Send message <i class="fas fa-paper-plane"></i></button>
+            <div id="formFeedback" class="form-message"></div>
+          </form>
+
+         
+          <ul class="contact-list">
+            <li><i class="fas fa-envelope contact-icon"></i> <a href="mailto:selonyaneitumeleng@gmail.com">selonyaneitumeleng@gmail.com</a></li>
+            <li><i class="fab fa-whatsapp contact-icon"></i> <a href="https://wa.me/26662826394" target="_blank">+266 62826394</a></li>
+            <li><i class="fab fa-linkedin contact-icon"></i> <a href="https://www.linkedin.com/in/itumeleng-selonyane-23b8503b8" target="_blank">linkedin.com/in/itumeleng-selonyane</a></li>
+            <li><i class="fab fa-facebook contact-icon"></i> <a href="https://www.facebook.com/share/1Co1AoVjtC/" target="_blank">facebook.com/Itumeleng.Selonyane</a></li>
+            <li><i class="fab fa-github contact-icon"></i> <a href="https://github.com/selonyaneitumeleng-ctrl" target="_blank">github.com/selonyaneitumeleng-ctrl</a></li>
+          </ul>
+          <div style="margin-top: 1.8rem; background: #f7f5ff; padding: 1rem 1.5rem; border-radius: 1.5rem;">
+            <p style="font-weight: 500;"> Botho University student | Mobile & Web Developer | Open to internships & collaborations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <p>© 2026 Itumeleng Selonyane — from Qoaling Lekhalong, Maseru, Lesotho.</p>
+    </footer>
+  </div>
+
+  <script>
+   
+    const certificatesList = ['Cisco.png', 'Bridgia.jpg'];
+    let currentIndex = 0;
+    const modal = document.getElementById('certModal');
+    const certImage = document.getElementById('certImage');
+    const prevBtn = document.getElementById('prevCert');
+    const nextBtn = document.getElementById('nextCert');
+    const openBtn = document.getElementById('openCertViewer');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const warningDiv = document.getElementById('screenshotWarning');
+
+    function loadCertificate(index) {
+      if (index >= 0 && index < certificatesList.length) {
+        certImage.src = certificatesList[index];
+        currentIndex = index;
+      }
+    }
+
+    openBtn.onclick = () => {
+      if (certificatesList.length > 0) {
+        loadCertificate(0);
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        modal.addEventListener('contextmenu', (e) => e.preventDefault());
+      } else {
+        alert('Certificate images not found. Please add Cisco.png and Bridgia.jpg in the same folder.');
+      }
+    };
+
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    closeModalBtn.onclick = closeModal;
+    window.onclick = (e) => { if (e.target === modal) closeModal(); };
+
+    prevBtn.onclick = () => {
+      if (currentIndex > 0) loadCertificate(currentIndex - 1);
+      else loadCertificate(certificatesList.length - 1);
+    };
+    nextBtn.onclick = () => {
+      if (currentIndex < certificatesList.length - 1) loadCertificate(currentIndex + 1);
+      else loadCertificate(0);
+    };
+
+    // Disable keyboard shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (modal.style.display === 'flex') {
+        if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'p' || e.key === 'P' || e.key === 'c' || e.key === 'C'))) {
+          e.preventDefault();
+          warningDiv.style.display = 'block';
+          setTimeout(() => { warningDiv.style.display = 'none'; }, 2000);
+        }
+        if (e.key === 'F12') {
+          e.preventDefault();
+          warningDiv.style.display = 'block';
+          setTimeout(() => { warningDiv.style.display = 'none'; }, 2000);
+        }
+      }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      if (modal.style.display === 'flex' && (e.key === 'PrintScreen' || (e.ctrlKey && e.key === 's'))) {
+        warningDiv.style.display = 'block';
+        setTimeout(() => { warningDiv.style.display = 'none'; }, 2500);
+      }
+    });
+
+    certImage.addEventListener('contextmenu', (e) => e.preventDefault());
+    certImage.addEventListener('dragstart', (e) => e.preventDefault());
+
+    // Contact form
+    const contactForm = document.getElementById('contactForm');
+    const feedbackDiv = document.getElementById('formFeedback');
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+      const message = document.getElementById('userMsg').value.trim();
+      if (!name || !email || !message) {
+        feedbackDiv.textContent = '⚠️ Please fill all fields.';
+        feedbackDiv.style.color = '#e11d48';
+        setTimeout(() => feedbackDiv.textContent = '', 3000);
+        return;
+      }
+      if (!email.includes('@')) {
+        feedbackDiv.textContent = '📧 Valid email required.';
+        feedbackDiv.style.color = '#e11d48';
+        setTimeout(() => feedbackDiv.textContent = '', 3000);
+        return;
+      }
+      feedbackDiv.textContent = `✨ Thanks ${name}! I'll reply to ${email} soon.`;
+      feedbackDiv.style.color = '#0f7b3a';
+      contactForm.reset();
+      setTimeout(() => feedbackDiv.textContent = '', 5000);
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#" || targetId === "") return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
